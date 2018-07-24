@@ -1,12 +1,13 @@
 (ns clj-fix.core
-  (:use clj-fix.connection.protocol)
-  (:use fix-translator.core)
-  (:require (clojure [string :as s])
-            (lamina [core :as l])
-            (aleph [tcp :as a])
-            (gloss [core :as g])
-            (cheshire [core :as c])
-            (clj-time [core :as t] [format :as f]))
+  (:require [clj-fix.connection.protocol :refer :all] 
+            [clojure.string :as s]
+            [fix-translator.core :refer :all]
+            [lamina.core :as l]
+            [aleph.tcp :as a]
+            [gloss.core :as g]
+            [cheshire.core :as c]
+            [clj-time.core :as t] 
+            [clj-time.format :as f])
   (:import (java.util.concurrent Executors Future TimeUnit)))
 
 ; FIX messages end with '10=xxx' where 'xxx' is a three-digit checksum
